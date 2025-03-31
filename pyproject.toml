@@ -1,5 +1,5 @@
 [project]
-name = "suya"
+name = "tanvivaragal"
 version = "0.1.0"
 description = ""
 authors = [
@@ -27,7 +27,7 @@ dev = [
 ]
 
 [tool.pdm.build]
-includes = ["src/சுய"]
+includes = ["src/தன்விவரங்கள்"]
 
 [build-system]
 requires = ["pdm-backend"]
