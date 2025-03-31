@@ -1,0 +1,15 @@
+from abc import abstractmethod
+
+from nuchabäl import Wuj
+
+from சுய.உருப்படி.உருப்படி import உருப்படி
+from சுய.மொழிபெயர்ப்பாளர்.மொழிபெயர்ப்பாளர் import மொழிபெயர்ப்பாளர்
+
+wuj = Wuj()
+
+
+class வெளியீடு(உருப்படி):
+    @abstractmethod
+    def வடிவூட்டம்(தன், மொழி: str, தகவல்கள்: dict[str, str], மொழிப்பெயர்பாளர்: மொழிபெயர்ப்பாளர்) -> str:
+        pass
+

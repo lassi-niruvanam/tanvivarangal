@@ -1,0 +1,35 @@
+[project]
+name = "suya"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Julien Malard-Adam", email = "julien.malard@mail.mcgill.ca"},
+]
+dependencies = [
+    "bibtexparser<2.0.0,>=1.4.0",
+    "ennikkai<2.0.0,>=1.2.5",
+    "nuchabal<1.0.0,>=0.0.1",
+    "pyfranc<1.0.0,>=0.1.1",
+    "deepmerge<2.0.0,>=1.1.0",
+    "odfdo>=3.9.1",
+]
+requires-python = ">=3.10,<4.0"
+readme = "README.md"
+license = {text = "AGPL-3.0"}
+
+
+[tool.pdm]
+distribution = true
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "pytest<8.0.0,>=7.2.0",
+]
+
+[tool.pdm.build]
+includes = ["src/சுய"]
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
