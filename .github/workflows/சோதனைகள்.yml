@@ -1,0 +1,31 @@
+name: தன்விவஙர்களின் சோதனைகள்
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+        - '**.md'
+
+jobs:
+  sodhanai:
+    name: சோதனைகள்
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+      runs-on: ${{ matrix.os }}
+      steps:
+        - uses: actions/checkout@v4
+        - name: PDM நிறுவல்
+          uses: pdm-project/setup-pdm@v4
+        - name: சார்பு நிறுவல்
+          run: pdm install
+        - name: சோதிக்க
+          run: pdm run pytest
+
