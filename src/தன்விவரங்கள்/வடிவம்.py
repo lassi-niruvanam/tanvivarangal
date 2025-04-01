@@ -1,6 +1,6 @@
 import uuid
 
-from odfdo import Span, Style
+from odfdo import Style
 
 
 class உரை_வடிவம்(object):
