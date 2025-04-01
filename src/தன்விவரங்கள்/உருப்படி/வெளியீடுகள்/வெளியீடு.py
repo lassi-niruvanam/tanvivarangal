@@ -9,7 +9,5 @@ wuj = Wuj()
 
 
 class வெளியீடு(உருப்படி):
-    @abstractmethod
-    def வடிவூட்டம்(தன், மொழி: str, தகவல்கள்: dict[str, str], மொழிப்பெயர்பாளர்: மொழிபெயர்ப்பாளர்) -> str:
-        pass
+    pass
 
