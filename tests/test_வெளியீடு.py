@@ -18,5 +18,8 @@ class செய்தி_உருவாக்கம்(unittest.TestCase):
         நான் = தன்விவரங்கள்("த")
         நான்.பெயர்("நான் தான்")
         with tempfile.TemporaryDirectory() as கோப்புரை:
-            நான்.வெளியிடு(வடிவூட்டம்="pdf", கோப்பு=path.join(கோப்புரை, "தன்விவரங்கள்"))
+            try:
+                நான்.வெளியிடு(வடிவூட்டம்="pdf", கோப்பு=path.join(கோப்புரை, "தன்விவரங்கள்"))
+            except FileNotFoundError:
+                தன்.skipTest("soffice கிடைக்கவில்லை")
             தன்.assertTrue(os.path.isfile(path.join(கோப்புரை, "தன்விவரங்கள்_த.pdf")))

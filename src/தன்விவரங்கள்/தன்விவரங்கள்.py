@@ -48,7 +48,7 @@ class தன்விவரங்கள்(object):
         தன்.உருப்படியைச்_சேர்(வெளியீடுகள்(கோப்பு, எழுத்தாளர்_வடிவூட்டி))
 
     def வெளியிடு(
-            தன், மொழி: str | Iterable[str] = None, வடிவூட்டம்: str | Iterable[str] = "pdf", கோப்பு="தன்விவரங்கள்"
+            தன், மொழி: str | Iterable[str] = None, வடிவூட்டம்: str | Iterable[str] = "pdf", கோப்பு="தன்விவரங்கள்", லிப்ரோஃபிஸ்_கட்டளை="soffice"
     ):
         மொழி = மொழி or தன்.மூல்_மொழி
         if isinstance(மொழி, str):
@@ -64,7 +64,7 @@ class தன்விவரங்கள்(object):
 
                 if "pdf" in வடிவூட்டம்:
                     subprocess.run(
-                        ["/Applications/LibreOffice.app/Contents/MacOS/soffice", "--convert-to", "pdf", "கோப்பு.odt"],
+                        [லிப்ரோஃபிஸ்_கட்டளை, "--convert-to", "pdf", "கோப்பு.odt"],
                         cwd=கோப்புரை)
                     shutil.move(os.path.join(கோப்புரை, 'கோப்பு.pdf'), f"{கோப்பு}_{மொ}.pdf")
 
