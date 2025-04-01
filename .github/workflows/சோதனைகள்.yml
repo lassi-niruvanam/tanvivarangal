@@ -28,22 +28,22 @@ jobs:
       matrix:
         python-version: ["3.12", "latest"]
         os: [ubuntu-latest, macos-latest, windows-latest]
-      runs-on: ${{ matrix.os }}
-      steps:
-        - uses: actions/checkout@v4
-        - name: PDM நிறுவல்
-          uses: pdm-project/setup-pdm@v4
-          with:
-            python-version: ${{ matrix.python-version }}
-            cache: true
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: PDM நிறுவல்
+        uses: pdm-project/setup-pdm@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: true
 
-        - name: சார்பு நிறுவல்
-          run: pdm install
+      - name: சார்பு நிறுவல்
+        run: pdm install
 
-        - name: சோதிக்க
-          run: pdm cov && pdm run coverage xml
+      - name: சோதிக்க
+        run: pdm cov && pdm run coverage xml
 
-        - name: Envoyer rapports de couverture à Codecov
-          uses: codecov/codecov-action@v5
-          env:
-            CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      - name: Envoyer rapports de couverture à Codecov
+        uses: codecov/codecov-action@v5
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
