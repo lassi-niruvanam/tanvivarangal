@@ -22,7 +22,7 @@ class வெளியீடு(உருப்படி, ABC):
         தன்.அடையாளம் = தகவல்கள்["ID"]
         தன்.தலைப்பு = தகவல்கள்["title"].replace("{", "").replace("}", "")
 
-        தன்.எழுத்தாளர்கள் = தகவல்கள்["author"].split(" and ") if "author" in தகவல்கள் else []
+        தன்.எழுத்தாளர்கள் = தகவல்கள்["author"].replace("{", "").replace("}", "").split(" and ") if "author" in தகவல்கள் else []
         தன்.ஆண்டு = int(தகவல்கள்["year"]) if "year" in தகவல்கள் else None
         தன்.பக்கங்கள் = தகவல்கள்["pages"].split("--") if "pages" in தகவல்கள் else None
         தன்.எண்ணிம_ஆவணச்சுட்டி = தகவல்கள்["doi"] if "doi" in தகவல்கள் else None
