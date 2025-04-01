@@ -4,12 +4,10 @@ from odfdo import Paragraph, Element
 
 from .உருப்படி import உருப்படி
 from ..மொழிபெயர்ப்பாளர்.மொழிபெயர்ப்பாளர் import மொழிபெயர்ப்பாளர்
-from ..வடிவம் import தேவையான_வடிவங்கள்
+from ..வடிவம் import தேவையான_வடிவங்கள், பத்தி_வடிவம்
 
 
 class பத்தி(உருப்படி):
-
-    # https://www.overleaf.com/learn/latex/Paragraphs_and_new_lines
     def __init__(தன், உரைகள்: list[உருப்படி], வடிவம்: "பத்தி_வடிவம்"):
         super().__init__()
         தன்.வடிவம் = வடிவம்
@@ -19,9 +17,7 @@ class பத்தி(உருப்படி):
     def மொழியாக்கத்துக்காக(தன்) -> dict[str, dict[str, str]]:
         return {}
 
-    def உருப்படிகள்(
-            தன், மொழி: str, மொழியாக்கம்: மொழிபெயர்ப்பாளர், வடிவங்கள்: தேவையான_வடிவங்கள்
-    ) -> Iterator["உருப்படி"]:
+    def உருப்படிகள்(தன், மொழி: str, மொழியாக்கம்: மொழிபெயர்ப்பாளர்) -> Iterator["உருப்படி"]:
         for உரை in தன்.உரைகள்:
             yield உரை
 

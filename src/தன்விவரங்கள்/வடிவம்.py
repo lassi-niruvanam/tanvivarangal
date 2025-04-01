@@ -59,13 +59,14 @@ class தேவையான_வடிவங்கள்(object):
                 size=str(வடிவம்.வடிவம்["அளவு"]) + "pt",
             ))
         elif isinstance(வடிவம், பத்தி_வடிவம்):
-            இந்த_வடிவம் = Style(
+            தன்.வடிவங்கள்.add(Style(
                 family="paragraph",
                 name=வடிவம்.பெயர்,
                 display_name=வடிவம்.பெயர்,
                 align="left" if வடிவம்.ஒழுங்கு == "இடது" else "right" if வடிவம்.ஒழுங்கு == "வலது" else "justify",
-                space_after=str(வடிவம்.இடைவெளி) + "cm" if வடிவம்.இடைவெளி != 0 else None,
+                margin_bottom=str(வடிவம்.இடைவெளி) + "cm" if வடிவம்.இடைவெளி != 0 else None,
                 text_indent=str(வடிவம்.உள்தள்ளல்) + "cm",
                 margin_left=str(-வடிவம்.உள்தள்ளல்) + "cm" if வடிவம்.உள்தள்ளல் < 0 else "0cm"
-            )
-            தன்.வடிவங்கள்.add(இந்த_வடிவம்)
+            ))
+        else:
+            raise TypeError(வடிவம்)
