@@ -3,7 +3,7 @@ name = "tanvivaragal"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "Julien Malard-Adam", email = "julien.malard@mail.mcgill.ca"},
+    { name = "Julien Malard-Adam", email = "julien.malard@mail.mcgill.ca" },
 ]
 dependencies = [
     "bibtexparser<2.0.0,>=1.4.0",
@@ -15,16 +15,15 @@ dependencies = [
 ]
 requires-python = ">=3.10,<4.0"
 readme = "README.md"
-license = {text = "AGPL-3.0"}
+license = { text = "AGPL-3.0" }
 
 
 [tool.pdm]
 distribution = true
 
-[tool.pdm.dev-dependencies]
-dev = [
-    "pytest<8.0.0,>=7.2.0",
-]
+[tool.pdm.scripts]
+test = "pdm run pytest"
+cov = "pdm run coverage run -m pytest"
 
 [tool.pdm.build]
 includes = ["src/தன்விவரங்கள்"]
@@ -33,3 +32,8 @@ includes = ["src/தன்விவரங்கள்"]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
+[dependency-groups]
+dev = [
+    "pytest<8.0.0,>=7.2.0",
+    "coverage>=7.8.0",
+]
