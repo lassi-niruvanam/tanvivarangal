@@ -1,11 +1,16 @@
 import uuid
 
-from odfdo import Style
+from odfdo import Style, Paragraph
 
 
-class உரை_வடிவம்(object):
-    def __init__(தன், அளவு=12, சாய்வு=False, அடிக்கோடு=False, தடிமன்=False, குடும்பம்="Sans"):
+class வடிவம்(object):
+    def __init__(தன்):
         தன்.பெயர் = str(uuid.uuid4())
+
+
+class உரை_வடிவம்(வடிவம்):
+    def __init__(தன், அளவு=12, சாய்வு=False, அடிக்கோடு=False, தடிமன்=False, குடும்பம்="Sans"):
+        super().__init__()
         தன்.வடிவம் = {
             "சாய்வு": சாய்வு,
             "அடிக்கோடு": அடிக்கோடு,
@@ -30,17 +35,37 @@ class உரை_வடிவம்(object):
         return உரை_வடிவம்(**வடிவம்)
 
 
+class பத்தி_வடிவம்(வடிவம்):
+    def __init__(தன், உள்தள்ளல்=0, ஒழுங்கு=None, இடைவெளி=10):
+        super().__init__()
+        தன்.ஒழுங்கு = ஒழுங்கு
+        தன்.உள்தள்ளல் = உள்தள்ளல்
+        தன்.இடைவெளி = இடைவெளி
+
+
 class தேவையான_வடிவங்கள்(object):
     def __init__(தன்):
         தன்.வடிவங்கள் = set()
 
-    def சேரு(தன், வடிவம்: உரை_வடிவம்):
-        தன்.வடிவங்கள்.add(Style(
-            family="text",
-            name=வடிவம்.பெயர்,
-            display_name=வடிவம்.பெயர்,
-            italic=வடிவம்.வடிவம்["சாய்வு"],
-            underline=வடிவம்.வடிவம்["அடிக்கோடு"],
-            bold=வடிவம்.வடிவம்["தடிமன்"],
-            size=str(வடிவம்.வடிவம்["அளவு"]) + "pt",
-        ))
+    def சேரு(தன், வடிவம்: வடிவம்):
+        if isinstance(வடிவம், உரை_வடிவம்):
+            தன்.வடிவங்கள்.add(Style(
+                family="text",
+                name=வடிவம்.பெயர்,
+                display_name=வடிவம்.பெயர்,
+                italic=வடிவம்.வடிவம்["சாய்வு"],
+                underline=வடிவம்.வடிவம்["அடிக்கோடு"],
+                bold=வடிவம்.வடிவம்["தடிமன்"],
+                size=str(வடிவம்.வடிவம்["அளவு"]) + "pt",
+            ))
+        elif isinstance(வடிவம், பத்தி_வடிவம்):
+            இந்த_வடிவம் = Style(
+                family="paragraph",
+                name=வடிவம்.பெயர்,
+                display_name=வடிவம்.பெயர்,
+                align="left" if வடிவம்.ஒழுங்கு == "இடது" else "right" if வடிவம்.ஒழுங்கு == "வலது" else "justify",
+                space_after=str(வடிவம்.இடைவெளி) + "cm" if வடிவம்.இடைவெளி != 0 else None,
+                text_indent=str(வடிவம்.உள்தள்ளல்) + "cm",
+                margin_left=str(-வடிவம்.உள்தள்ளல்) + "cm" if வடிவம்.உள்தள்ளல் < 0 else "0cm"
+            )
+            தன்.வடிவங்கள்.add(இந்த_வடிவம்)
