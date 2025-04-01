@@ -1,7 +1,7 @@
 from abc import abstractmethod
 from typing import Iterable
 
-from சுய.வடிவம் import உரை_வடிவம்
+from ..வடிவம் import உரை_வடிவம்
 
 
 class எழுத்தாளர்_வடிவம்(object):

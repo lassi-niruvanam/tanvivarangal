@@ -1,11 +1,10 @@
 from typing import Iterable
 
 from odfdo import Span
-from எண்ணிக்கை import உரைக்கு
 
-from சுய.உருப்படி.உரை import உரை
-from சுய.வடிவம் import உரை_வடிவம், தேவையான_வடிவங்கள்
-from சுய.மொழிபெயர்ப்பாளர்.மொழிபெயர்ப்பாளர் import மொழிபெயர்ப்பாளர்
+from .உரை import உரை
+from ..வடிவம் import உரை_வடிவம், தேவையான_வடிவங்கள்
+from ..மொழிபெயர்ப்பாளர்.மொழிபெயர்ப்பாளர் import மொழிபெயர்ப்பாளர்
 
 
 class எண்(உரை):

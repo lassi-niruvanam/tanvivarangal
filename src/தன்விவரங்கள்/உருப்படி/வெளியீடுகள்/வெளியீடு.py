@@ -2,8 +2,8 @@ from abc import abstractmethod
 
 from nuchabäl import Wuj
 
-from சுய.உருப்படி.உருப்படி import உருப்படி
-from சுய.மொழிபெயர்ப்பாளர்.மொழிபெயர்ப்பாளர் import மொழிபெயர்ப்பாளர்
+from ..உருப்படி import உருப்படி
+from ...மொழிபெயர்ப்பாளர்.மொழிபெயர்ப்பாளர் import மொழிபெயர்ப்பாளர்
 
 wuj = Wuj()
 

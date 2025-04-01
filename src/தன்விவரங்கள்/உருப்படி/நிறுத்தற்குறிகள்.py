@@ -2,9 +2,9 @@ from typing import Iterable
 
 from odfdo import Element, Span
 
-from சுய.உருப்படி.உரை import உரை
-from சுய.வடிவம் import உரை_வடிவம், தேவையான_வடிவங்கள்
-from சுய.மொழிபெயர்ப்பாளர்.மொழிபெயர்ப்பாளர் import மொழிபெயர்ப்பாளர்
+from .உரை import உரை
+from ..வடிவம் import உரை_வடிவம், தேவையான_வடிவங்கள்
+from ..மொழிபெயர்ப்பாளர்.மொழிபெயர்ப்பாளர் import மொழிபெயர்ப்பாளர்
 
 
 class புள்ளி(உரை):
