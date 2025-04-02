@@ -1,6 +1,6 @@
 import uuid
 
-from odfdo import Style, Paragraph
+from odfdo import Style
 
 
 class வடிவம்(object):
@@ -57,6 +57,10 @@ class தேவையான_வடிவங்கள்(object):
                 underline=வடிவம்.வடிவம்["அடிக்கோடு"],
                 bold=வடிவம்.வடிவம்["தடிமன்"],
                 size=str(வடிவம்.வடிவம்["அளவு"]) + "pt",
+                **{
+                    "style:font-size-complex": str(வடிவம்.வடிவம்["அளவு"]) + "pt",
+                    "style:font-size-asian": str(வடிவம்.வடிவம்["அளவு"]) + "pt"
+                }
             ))
         elif isinstance(வடிவம், பத்தி_வடிவம்):
             தன்.வடிவங்கள்.add(Style(
