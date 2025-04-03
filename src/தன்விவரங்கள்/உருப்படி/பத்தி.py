@@ -14,9 +14,6 @@ class பத்தி(உருப்படி):
 
         தன்.உரைகள்: list[உருப்படி] = [உரு for உரு in உரைகள் if உரு is not None] or []
 
-    def மொழியாக்கத்துக்காக(தன்) -> dict[str, dict[str, str]]:
-        return {}
-
     def உருப்படிகள்(தன்) -> Iterator["உருப்படி"]:
         for உரை in தன்.உரைகள்:
             yield உரை

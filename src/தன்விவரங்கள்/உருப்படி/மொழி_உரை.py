@@ -1,11 +1,13 @@
+import base64
 from hashlib import sha256
-from typing import Iterable
+from typing import Iterable, Iterator
 
 from odfdo import Element
 
 from .உருப்படி import உருப்படி
 from .உரை import உரை
 from .நிறுத்தற்குறிகள் import சதுர_அடைப்பு, இடைவெளி
+from ..மொழிபெயர்ப்பாளர்.தகவல்கள் import மொழியாக்க_தகவல்
 from ..மொழிபெயர்ப்பாளர்.மொழிபெயர்ப்பாளர் import மொழிபெயர்ப்பாளர்
 from ..வடிவம் import உரை_வடிவம், தேவையான_வடிவங்கள்
 
@@ -15,10 +17,11 @@ class மொழிபெயர்க்கக்கூடிய_உரை(உர
         super().__init__(உரை=உரை, வடிவம்=வடிவம்)
         தன்.மூல்_மொழி = மூல்_மொழி
 
-        தன்.சாபி = sha256(தன்.உரை.encode("utf-8")).hexdigest()
+        சாபி = base64.b64encode(sha256(தன்.உரை.encode("utf-8")).digest()).decode('ASCII')
+        தன்.சாபி = சாபி if len(சாபி) < len(உரை) else உரை
 
-    def மொழியாக்கத்துக்காக(தன்) -> dict[str, dict[str, str]]:
-        return {தன்.மூல்_மொழி: {தன்.சாபி: தன்.உரை}}
+    def மொழியாக்கத்துக்காக(தன்) -> Iterator[மொழியாக்க_தகவல்]:
+        yield மொழியாக்க_தகவல்(சாபி=தன்.சாபி, மூல்_மொழி=தன்.மூல்_மொழி, உரை=தன்.உரை)
 
     def வெளியிடு(தன், மொழி: str, மொழியாக்கம்: மொழிபெயர்ப்பாளர், வடிவங்கள்: தேவையான_வடிவங்கள்) -> Iterable[Element]:
         மொழிபெயர்க்கப்பட்ட_உரை = மொழியாக்கம்(சாபி=தன்.உரை, மொழி=மொழி)

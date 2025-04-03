@@ -27,9 +27,11 @@ class வெளியீடு(உருப்படி, ABC):
         தன்.எண்ணிம_ஆவணச்சுட்டி = தகவல்கள்["doi"] if "doi" in தகவல்கள் else None
 
         try:
-            தன்.வெளியீட்டின்_மொழி = wuj.runuk(
+            வெளியீட்டின்_மொழி = wuj.runuk(
                 தகவல்கள்["language"] if "language" in தகவல்கள் else franc.lang_detect(தன்.தலைப்பு)[0][0]
             )
+
+            தன்.வெளியீட்டின்_மொழி
         except ValueError:
             தன்.வெளியீட்டின்_மொழி = franc.lang_detect(தன்.தலைப்பு)[0][0]
 
