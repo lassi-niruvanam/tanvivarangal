@@ -3,7 +3,7 @@ from typing import Iterable, List, Iterator
 
 from pyfranc import franc
 
-from .கருவிகள் import wuj
+from .கருவிகள் import nchbl
 from ..உருப்படி import உருப்படி
 from ..உரை import உரை
 from ..எண் import எண்
@@ -27,7 +27,7 @@ class வெளியீடு(உருப்படி, ABC):
         தன்.எண்ணிம_ஆவணச்சுட்டி = தகவல்கள்["doi"] if "doi" in தகவல்கள் else None
 
         try:
-            வெளியீட்டின்_மொழி = wuj.runuk(
+            வெளியீட்டின்_மொழி = nchbl.runuk(
                 தகவல்கள்["language"] if "language" in தகவல்கள் else franc.lang_detect(தன்.தலைப்பு)[0][0]
             )
 

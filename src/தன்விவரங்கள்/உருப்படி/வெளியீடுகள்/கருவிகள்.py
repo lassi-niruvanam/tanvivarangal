@@ -1,4 +1,4 @@
-from nuchabäl import Wuj
+from nuchabäl import Nuchabäl
 
-wuj = Wuj()
+nchbl = Nuchabäl()
 
