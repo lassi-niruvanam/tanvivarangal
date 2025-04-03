@@ -27,11 +27,11 @@ class வெளியீடு(உருப்படி, ABC):
         தன்.எண்ணிம_ஆவணச்சுட்டி = தகவல்கள்["doi"] if "doi" in தகவல்கள் else None
 
         try:
-            வெளியீட்டின்_மொழி = nchbl.runuk(
-                தகவல்கள்["language"] if "language" in தகவல்கள் else franc.lang_detect(தன்.தலைப்பு)[0][0]
+            வெளியீட்டின்_மொழி = nchbl.rubiChabäl(
+                தகவல்கள்["language"] if "language" in தகவல்கள் else franc.lang_detect(தன்.தலைப்பு)[0][0], 'iso'
             )
 
-            தன்.வெளியீட்டின்_மொழி
+            தன்.வெளியீட்டின்_மொழி = nchbl.runukChabäl(வெளியீட்டின்_மொழி, None) or franc.lang_detect(தன்.தலைப்பு)[0][0]
         except ValueError:
             தன்.வெளியீட்டின்_மொழி = franc.lang_detect(தன்.தலைப்பு)[0][0]
 
