@@ -5,7 +5,7 @@
 groups = ["default", "dev"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:2dc587d9747e039b0d2274dc22fa5cc6f23ebdbbd0add71eb920de7048e6dc7b"
+content_hash = "sha256:7736ee5f2a76fda3d7fa44a650c0d3749d1ed5e1a251b574084db4b5863bc0ef"
 
 [[metadata.targets]]
 requires_python = "~=3.12"
@@ -161,13 +161,13 @@ files = [
 
 [[package]]
 name = "nuchabal"
-version = "0.1.3"
+version = "0.1.5"
 requires_python = "<4.0,>=3.12"
 summary = "Kinuk' ri taq chab'äl pa ri xekaj wachulew"
 groups = ["default"]
 files = [
-    {file = "nuchabal-0.1.3-py3-none-any.whl", hash = "sha256:bb7a16a3ffd29d758bf3aa3fb08d6e5363e1be52c3db55e71c2294dabe3ad4de"},
-    {file = "nuchabal-0.1.3.tar.gz", hash = "sha256:5b25300bca2eb6cebae1e9e5040f838fcf32de6240eabc24eae81886ddb584dd"},
+    {file = "nuchabal-0.1.5-py3-none-any.whl", hash = "sha256:1fa7004f3b9896ca869de5bb0e5976e4fab170b7b2d106564621847aee5bcbb7"},
+    {file = "nuchabal-0.1.5.tar.gz", hash = "sha256:8f0000f8af55955cf8d7a408a0e16d4c16f1ddabf9e767a99246b02b4e8d86f1"},
 ]
 
 [[package]]
