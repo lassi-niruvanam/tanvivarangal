@@ -75,7 +75,10 @@ class தன்விவரங்கள்(object):
             for மொ in மொழி:
                 மொழி_கோப்பு_பெயர் = f"{கோப்பு}_{மொ}"
                 if "odt" in வடிவூட்டம்:
-                    shutil.copy(os.path.join(கோப்புரை, f"{மொழி_கோப்பு_பெயர்}.odt"), f"{மொழி_கோப்பு_பெயர்}.odt")
+                    try:
+                        shutil.copy(os.path.join(கோப்புரை, f"{மொழி_கோப்பு_பெயர்}.odt"), ஒடியெஃப்_கோப்பு_முகவரி)
+                    except shutil.SameFileError:  # சோதனைகளில் அப்படி ஆகிறது...
+                        pass
 
                 if "pdf" in வடிவூட்டம்:
                     shutil.move(os.path.join(கோப்புரை, f'{மொழி_கோப்பு_பெயர்}.pdf'), f"{மொழி_கோப்பு_பெயர்}.pdf")
