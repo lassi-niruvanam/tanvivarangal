@@ -1,9 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Iterable, List, Iterator
 
-from pyfranc import franc
-
-from .கருவிகள் import nchbl, சுத்தமான_உரை, மொழியைக்_கண்டுப்பிடி
+from .கருவிகள் import சுத்தமான_உரை, மொழியைக்_கண்டுப்பிடி, மொழியின்_பெயர்
 from ..இணைப்பு import இணைப்பு
 from ..உருப்படி import உருப்படி
 from ..உரை import உரை
@@ -27,7 +25,9 @@ class வெளியீடு(உருப்படி, ABC):
         தன்.ஆண்டு = int(தகவல்கள்["year"]) if "year" in தகவல்கள் else None
         தன்.பக்கங்கள் = தகவல்கள்["pages"].split("--") if "pages" in தகவல்கள் else None
         தன்.எண்ணிம_ஆவணச்சுட்டி = தகவல்கள்["doi"] if "doi" in தகவல்கள் else None
-        தன்.வெளியீட்டின்_மொழி = தகவல்கள்["language"] if "language" in தகவல்கள் else மொழியைக்_கண்டுப்பிடி(தன்.தலைப்பு)
+        தன்.வெளியீட்டின்_மொழி = மொழியின்_பெயர்(
+            தகவல்கள்["language"]
+        ) if "language" in தகவல்கள் else மொழியைக்_கண்டுப்பிடி(தன்.தலைப்பு)
 
     def உருப்படிகள்(தன்) -> Iterator["உருப்படி"]:
         பத்தி_உரைகள் = தன்.வெளியீட்டின்_உருப்படிகள்()
