@@ -1,5 +1,6 @@
 from typing import List
 
+from .கருவிகள் import சுத்தமான_உரை
 from .வெளியீடு import வெளியீடு
 from ..உருப்படி import உருப்படி
 from ..எண் import எண்
@@ -18,7 +19,7 @@ class கட்டுரை(வெளியீடு):
     ):
         super().__init__(தகவல்கள்=தகவல்கள், எழுத்தாளர்_வடிவூட்டி=எழுத்தாளர்_வடிவூட்டி)
 
-        தன்.ஆய்விதழ் = தகவல்கள்["journal"]
+        தன்.ஆய்விதழ் = சுத்தமான_உரை(தகவல்கள்["journal"])
         தன்.தொகுதி = தகவல்கள்["volume"] if "volume" in தகவல்கள் else None
         தன்.எண் = தகவல்கள்["number"] if "number" in தகவல்கள் else None
 
