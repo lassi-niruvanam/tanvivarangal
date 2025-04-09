@@ -1,14 +1,12 @@
 from typing import List
 
 from .வெளியீடு import வெளியீடு
-from ..இணைப்பு import இணைப்பு
 from ..உருப்படி import உருப்படி
-from ..உரை import உரை
 from ..எண் import எண்
 from ..கருவிகள் import எழுத்தாளர்_வடிவம்
 from ..தேதி import தேதி
 from ..நிறுத்தற்குறிகள் import முற்றுபுள்ளி, இடைவெளி, முக்கால்ப்புள்ளி, அடைப்பு
-from ..மொழி_உரை import மொழிபெயர்ப்புடன்_உரை, மொழிபெயர்க்கக்கூடிய_உரை
+from ..மொழி_உரை import மொழிபெயர்ப்புடன்_உரை
 from ...வடிவம் import உரை_வடிவம்
 
 

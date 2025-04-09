@@ -60,7 +60,11 @@ class தேவையான_வடிவங்கள்(object):
                 size=str(வடிவம்.வடிவம்["அளவு"]) + "pt",
                 **{
                     "style:font-size-complex": str(வடிவம்.வடிவம்["அளவு"]) + "pt",
-                    "style:font-size-asian": str(வடிவம்.வடிவம்["அளவு"]) + "pt"
+                    "style:font-size-asian": str(வடிவம்.வடிவம்["அளவு"]) + "pt",
+                    "style:font-name": "DejaVu Sans" if வடிவம்.வடிவம்["குடும்பம்"] == "Sans" else "DejaVu Serif",
+                    "style:font-name-asian": "DejaVu Sans" if வடிவம்.வடிவம்["குடும்பம்"] == "Sans" else "DejaVu Serif",
+                    "style:font-name-complex": "DejaVu Sans" if வடிவம்.வடிவம்["குடும்பம்"] == "Sans" else "DejaVu Serif"
+
                 }
             ))
         elif isinstance(வடிவம், பத்தி_வடிவம்):
