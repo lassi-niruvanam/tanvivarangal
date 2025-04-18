@@ -9,7 +9,7 @@ from deepmerge import always_merger
 from odfdo import Document
 
 from .உருப்படி import உருப்படி
-from .உருப்படி.கருவிகள் import எழுத்தாளர்_வடிவம், நான்_தடிமன்_எழுத்தாளர்_வடிவம்
+from .உருப்படி.கருவிகள் import எழுத்தாளர்_வடிவம், நான்_தடிமன்_எழுத்தாளர்_வடிவம், உள்ளீடு_உரை
 from .உருப்படி.தலைப்பு import தலைப்பு
 from .உருப்படி.பெயர் import பெயர்_தலைப்பு
 from .உருப்படி.மொழிகள் import மொழிகள்

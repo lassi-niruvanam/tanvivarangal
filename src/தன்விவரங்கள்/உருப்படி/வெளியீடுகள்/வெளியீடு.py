@@ -1,12 +1,12 @@
 from abc import ABC, abstractmethod
 from typing import Iterable, List, Iterator
 
-from .கருவிகள் import சுத்தமான_உரை, மொழியைக்_கண்டுப்பிடி, மொழியின்_பெயர்
+from .கருவிகள் import சுத்தமான_உரை
 from ..இணைப்பு import இணைப்பு
 from ..உருப்படி import உருப்படி
 from ..உரை import உரை
 from ..எண் import எண்
-from ..கருவிகள் import எழுத்தாளர்_வடிவம்
+from ..கருவிகள் import எழுத்தாளர்_வடிவம், மொழியின்_பெயர், மொழியைக்_கண்டுப்பிடி
 from ..நிறுத்தற்குறிகள் import அரைகால்ப்புள்ளி, இடைவெளி, இணைப்புச்சிறுகோடு, மூன்றுபுள்ளிகள், பிரிக்க_முடியாத_இடைவெளி
 from ..பத்தி import பத்தி
 from ..மொழி_உரை import மொழிபெயர்க்கக்கூடிய_உரை

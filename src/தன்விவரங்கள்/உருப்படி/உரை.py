@@ -1,10 +1,10 @@
-from typing import Iterator, Iterable
+from typing import Iterable
 
 from odfdo import Element, Span
 
 from .உருப்படி import உருப்படி
-from ..வடிவம் import உரை_வடிவம், தேவையான_வடிவங்கள்
 from ..மொழிபெயர்ப்பாளர்.மொழிபெயர்ப்பாளர் import மொழிபெயர்ப்பாளர்
+from ..வடிவம் import உரை_வடிவம், தேவையான_வடிவங்கள்
 
 
 class உரை(உருப்படி):
