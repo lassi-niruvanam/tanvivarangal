@@ -77,13 +77,16 @@ class தன்விவரங்கள்(object):
 
             for மொ in மொழி:
                 if "odt" in வடிவூட்டம்:
-                    shutil.copy(
+                    shutil.move(
                         os.path.join(சமீபத்திய_கோப்புரை, f"{கோப்பு_பெயர்}_{மொ}.odt"),
-                        f"{os.path.join(கோப்புரை, கோப்பு_பெயர்)}_{மொ}.odt"
+                        os.path.join(கோப்புரை, f"{கோப்பு_பெயர்}_{மொ}.odt")
                     )
 
                 if "pdf" in வடிவூட்டம்:
-                    shutil.move(os.path.join(கோப்புரை, f'{மொழி_கோப்பு_பெயர்}.pdf'), f"{மொழி_கோப்பு_பெயர்}.pdf")
+                    shutil.move(
+                        os.path.join(சமீபத்திய_கோப்புரை, f'{கோப்பு_பெயர்}_{மொ}.pdf'),
+                        os.path.join(கோப்புரை, f"{கோப்பு_பெயர்}_{மொ}.pdf)")
+                    )
 
     def ஓடியெஃப்_உருவாக்கு(தன், மொழி: str) -> Document:
         ஆவணம் = Document('text')
