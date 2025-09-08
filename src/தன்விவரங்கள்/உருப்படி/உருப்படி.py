@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Iterator
+from typing import Iterator, Iterable
 
 from odfdo import Element
 
@@ -12,7 +12,7 @@ class உருப்படி(ABC):
     def __init__(தன்):
         pass
 
-    def மொழியாக்கத்துக்காக(தன்) -> Iterator[மொழியாக்க_தகவல்]:
+    def மொழியாக்கத்துக்காக(தன்) -> Iterable[மொழியாக்க_தகவல்]:
         for உரு in தன்.உருப்படிகள்():
             yield from உரு.மொழியாக்கத்துக்காக()
 
