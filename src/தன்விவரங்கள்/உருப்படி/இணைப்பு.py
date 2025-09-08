@@ -2,7 +2,6 @@ from typing import Iterable
 
 from odfdo import Element, Link
 
-from .உருப்படி import உருப்படி
 from .உரை import உரை
 from ..மொழிபெயர்ப்பாளர்.மொழிபெயர்ப்பாளர் import மொழிபெயர்ப்பாளர்
 from ..வடிவூட்டு import தேவையான_வடிவங்கள்

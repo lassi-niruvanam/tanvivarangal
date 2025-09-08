@@ -1,4 +1,3 @@
-from .உரை import உரை
 from .எண் import எண்
 from ..வடிவூட்டு import உரை_வடிவூட்டு
 
