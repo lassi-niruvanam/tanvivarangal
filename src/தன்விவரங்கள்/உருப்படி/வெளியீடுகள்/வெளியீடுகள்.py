@@ -1,5 +1,5 @@
 import warnings
-from typing import Iterator
+from typing import Iterator, Iterable
 
 import bibtexparser
 
@@ -51,7 +51,7 @@ class வெளியீடு_வரிசைப்படுத்தி(object
     def __init__(தன், இறங்குவரிசை=True):
         தன்.இறங்குவரிசை = இறங்குவரிசை
 
-    def __call__(தன், வெளியீடுகள்: Iterator["உருப்படி"]):
+    def __call__(தன், வெளியீடுகள்: Iterable["உருப்படி"]):
         return வெளியீடுகள்
 
 
