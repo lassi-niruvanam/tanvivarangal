@@ -1,6 +1,7 @@
 import uuid
 from typing import Iterable, Iterator
 
+import unicodedata as ud
 from odfdo import Table, Element, Cell
 
 from .உருப்படி import உருப்படி
@@ -37,12 +38,14 @@ class வரிசை(உருப்படி):
         தன்.கலங்கள் = கலங்கள்
 
     def வெளியிடு(தன், மொழி: str, மொழியாக்கம்: மொழிபெயர்ப்பாளர், வடிவங்கள்: தேவையான_வடிவங்கள்) -> Iterable[Cell]:
-        for க in தன்.கலங்கள்:
-            cell = Cell()
-            for இ in க.வெளியிடு(மொழி=மொழி, மொழியாக்கம்=மொழியாக்கம், வடிவங்கள்=வடிவங்கள்):
-                cell.append(இ)
+        மொழி_திசை_இடத்திலிருந்து = ud.bidirectional(மொழி[0]) == 'L'
 
-            yield cell
+        for க in தன்.கலங்கள் if மொழி_திசை_இடத்திலிருந்து else reversed(தன்.கலங்கள்):
+            க_ = Cell()
+            for இ in க.வெளியிடு(மொழி=மொழி, மொழியாக்கம்=மொழியாக்கம், வடிவங்கள்=வடிவங்கள்):
+                க_.append(இ)
+
+            yield க_
 
     def உருப்படிகள்(தன்) -> Iterator["உருப்படி"]:
         for க in தன்.கலங்கள்:
