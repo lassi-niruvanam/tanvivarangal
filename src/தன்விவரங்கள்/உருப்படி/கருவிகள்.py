@@ -30,7 +30,7 @@ def மொழியின்_பெயர்(மொழி: str) -> str:
         )
 
         return nchbl.runukChabäl(வெளியீட்டின்_மொழி or மொழி, None) or மொழி
-    except ValueError:
+    except (ValueError, KeyError):
         return மொழி
 
 
@@ -45,3 +45,6 @@ class உள்ளீடு_உரை(object):
         தன்.உரை = உரை
         தன்.மூல்_மொழி = மூல்_மொழி or மொழியைக்_கண்டுப்பிடி(உரை)
 
+
+def உள்ளீடு_உரையாக(உரை: str | உள்ளீடு_உரை) -> உள்ளீடு_உரை:
+    return உரை if isinstance(உரை, உள்ளீடு_உரை) else உள்ளீடு_உரை(உரை)
