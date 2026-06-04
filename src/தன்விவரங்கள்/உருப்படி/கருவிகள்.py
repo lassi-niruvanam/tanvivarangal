@@ -1,6 +1,8 @@
 from abc import abstractmethod
 from typing import Iterable, Optional
 
+import iso639
+from iso639 import LanguageNotFoundError
 from pyfranc import franc
 
 from .வெளியீடுகள்.கருவிகள் import nchbl
@@ -23,27 +25,45 @@ class நான்_தடிமன்_எழுத்தாளர்_வடி�
             return உரை_வடிவம்(தடிமன்=True)
 
 
-def மொழியின்_பெயர்(மொழி: str) -> str:
-    try:
-        வெளியீட்டின்_மொழி = nchbl.rubiChabäl(
-            மொழி, 'iso'
-        )
+def மொழியின்_குறியீடு(மொழி: str) -> str:
+    if மொழி in nchbl.retamabälChabäl:
+        return மொழி
 
-        return nchbl.runukChabäl(வெளியீட்டின்_மொழி or மொழி, None) or மொழி
+    try:
+        சீயனைநி = iso639.Language.match(மொழி).part3
+    except LanguageNotFoundError:
+        சீயனைநி = None
+
+    if சீயனைநி:
+        try:
+            வெளியீட்டின்_மொழி = nchbl.rubiChabäl(
+                மொழி, 'iso'
+            )
+
+            if வெளியீட்டின்_மொழி:
+                return nchbl.runukChabäl(வெளியீட்டின்_மொழி, None) or மொழி
+            else:
+                return சீயனைநி
+
+        except (ValueError, KeyError):
+            return சீயனைநி
+
+    try:
+        return nchbl.runukChabäl(மொழி, None) or மொழி
     except (ValueError, KeyError):
         return மொழி
 
 
 def மொழியைக்_கண்டுப்பிடி(உரை: str) -> str:
     ஃபிராங்க_ஊகி = franc.lang_detect(உரை)[0][0]
-    return மொழியின்_பெயர்(ஃபிராங்க_ஊகி)
+    return மொழியின்_குறியீடு(ஃபிராங்க_ஊகி)
 
 
 class உள்ளீடு_உரை(object):
     def __init__(தன், உரை: str, மூல்_மொழி: Optional[str] = None):
         super().__init__()
         தன்.உரை = உரை
-        தன்.மூல்_மொழி = மூல்_மொழி or மொழியைக்_கண்டுப்பிடி(உரை)
+        தன்.மூல்_மொழி = மொழியின்_குறியீடு(மூல்_மொழி) if மூல்_மொழி else மொழியைக்_கண்டுப்பிடி(உரை)
 
 
 def உள்ளீடு_உரையாக(உரை: str | உள்ளீடு_உரை) -> உள்ளீடு_உரை:
