@@ -2,6 +2,7 @@ from typing import Iterator, Iterable, Optional
 
 from .உருப்படி import உருப்படி
 from .உரை import உரை
+from .எண் import எண்_உரை
 from .கருவிகள் import உள்ளீடு_உரையாக
 from .நிறுத்தற்குறிகள் import இடைவெளி, குத்தான_கோடு
 from .பத்தி import பத்தி
@@ -62,3 +63,6 @@ class மின்னஞ்சல்(தொடர்பு):
 class தொலைப்பேசி(தொடர்பு):
     def __init__(தன், எண்: str, சின்னம்="📞"):
         super().__init__(சின்னம்=சின்னம், தகவல்=எண்)
+
+    def தகவல்_உருப்படி(தன்) -> உருப்படி:
+        return எண்_உரை(தன்.தகவல்)
