@@ -37,7 +37,9 @@ class உரை_வடிவம்(வடிவம்):
 
 
 class பத்தி_வடிவம்(வடிவம்):
-    def __init__(தன், உள்தள்ளல்=0, ஒழுங்கு="ஆரம்பம்", கீழ்_ஓரம்=0, மேல்_ஓரம்=0, ஆரம்ப_தள்ளல்=0, இறுதி_தள்ளல்=0):
+    def __init__(
+        தன், உள்தள்ளல்=0, ஒழுங்கு="ஆரம்பம்", கீழ்_ஓரம்=0, மேல்_ஓரம்=0, ஆரம்ப_தள்ளல்=0, இறுதி_தள்ளல்=0
+    ):
         super().__init__()
         தன்.ஒழுங்கு = ஒழுங்கு
         தன்.உள்தள்ளல் = உள்தள்ளல்
@@ -53,49 +55,69 @@ class தேவையான_வடிவங்கள்(object):
 
     def சேரு(தன், வடிவம்: வடிவம், மொழி: str):
         if isinstance(வடிவம், உரை_வடிவம்):
-            தன்.வடிவங்கள்.add(Style(
-                family="text",
-                name=வடிவம்.பெயர்,
-                display_name=வடிவம்.பெயர்,
-                italic=வடிவம்.வடிவம்["சாய்வு"],
-                underline=வடிவம்.வடிவம்["அடிக்கோடு"],
-                bold=வடிவம்.வடிவம்["தடிமன்"],
-                size=str(வடிவம்.வடிவம்["அளவு"]) + "pt",
-                **{
-                    "style:font-size-complex": str(வடிவம்.வடிவம்["அளவு"]) + "pt",
-                    "style:font-size-asian": str(வடிவம்.வடிவம்["அளவு"]) + "pt",
-                    "style:font-name": "DejaVu Sans" if வடிவம்.வடிவம்["குடும்பம்"] == "Sans" else "DejaVu Serif",
-                    "style:font-name-asian": "DejaVu Sans" if வடிவம்.வடிவம்["குடும்பம்"] == "Sans" else "DejaVu Serif",
-                    "style:font-name-complex": "DejaVu Sans" if வடிவம்.வடிவம்["குடும்பம்"] == "Sans" else "DejaVu Serif"
-
-                }
-            ))
+            தன்.வடிவங்கள்.add(
+                Style(
+                    family="text",
+                    name=வடிவம்.பெயர்,
+                    display_name=வடிவம்.பெயர்,
+                    italic=வடிவம்.வடிவம்["சாய்வு"],
+                    underline=வடிவம்.வடிவம்["அடிக்கோடு"],
+                    bold=வடிவம்.வடிவம்["தடிமன்"],
+                    size=str(வடிவம்.வடிவம்["அளவு"]) + "pt",
+                    **{
+                        "style:font-size-complex": str(வடிவம்.வடிவம்["அளவு"]) + "pt",
+                        "style:font-size-asian": str(வடிவம்.வடிவம்["அளவு"]) + "pt",
+                        "style:font-name": "DejaVu Sans"
+                        if வடிவம்.வடிவம்["குடும்பம்"] == "Sans"
+                        else "DejaVu Serif",
+                        "style:font-name-asian": "DejaVu Sans"
+                        if வடிவம்.வடிவம்["குடும்பம்"] == "Sans"
+                        else "DejaVu Serif",
+                        "style:font-name-complex": "DejaVu Sans"
+                        if வடிவம்.வடிவம்["குடும்பம்"] == "Sans"
+                        else "DejaVu Serif",
+                    },
+                )
+            )
         elif isinstance(வடிவம், பத்தி_வடிவம்):
-            மொழி_திசை_இடத்திலிருந்து = ud.bidirectional(மொழி[0]) == 'L'
-            இடது_உள்தள்ளல் = str((-வடிவம்.உள்தள்ளல் if வடிவம்.உள்தள்ளல் < 0 else 0) + வடிவம்.ஆரம்ப_தள்ளல்) + "cm"
+            மொழி_திசை_இடத்திலிருந்து = ud.bidirectional(மொழி[0]) == "L"
+            இடது_உள்தள்ளல் = (
+                str((-வடிவம்.உள்தள்ளல் if வடிவம்.உள்தள்ளல் < 0 else 0) + வடிவம்.ஆரம்ப_தள்ளல்) + "cm"
+            )
             வலது_உள்தள்ளல் = "0cm"
 
             if மொழி_திசை_இடத்திலிருந்து:
-                ஒழுங்குபடுத்தல் = "start" if வடிவம்.ஒழுங்கு == "ஆரம்பம்" else "end" if வடிவம்.ஒழுங்கு == "இறுதி" else "justify"
+                ஒழுங்குபடுத்தல் = (
+                    "start"
+                    if வடிவம்.ஒழுங்கு == "ஆரம்பம்"
+                    else "end"
+                    if வடிவம்.ஒழுங்கு == "இறுதி"
+                    else "justify"
+                )
                 திசை = "lr-tb"
 
             else:
-                ஒழுங்குபடுத்தல் = "end" if வடிவம்.ஒழுங்கு == "ஆரம்பம்" else "start" if வடிவம்.ஒழுங்கு == "இறுதி" else "justify"
+                ஒழுங்குபடுத்தல் = (
+                    "end"
+                    if வடிவம்.ஒழுங்கு == "ஆரம்பம்"
+                    else "start"
+                    if வடிவம்.ஒழுங்கு == "இறுதி"
+                    else "justify"
+                )
                 திசை = "rl-tb"
 
-            தன்.வடிவங்கள்.add(Style(
-                family="paragraph",
-                name=வடிவம்.பெயர்,
-                display_name=வடிவம்.பெயர்,
-                margin_top=str(வடிவம்.மேல்_ஓரம்) + "cm",
-                margin_bottom=str(வடிவம்.கீழ்_ஓரம்) + "cm",
-                text_indent=str(வடிவம்.உள்தள்ளல்) + "cm",
-                margin_left=இடது_உள்தள்ளல்,
-                margin_right=வலது_உள்தள்ளல்,
-                **{
-                    "text-align": ஒழுங்குபடுத்தல்,
-                    "style:writing-mode": திசை
-                }
-            ))
+            தன்.வடிவங்கள்.add(
+                Style(
+                    family="paragraph",
+                    name=வடிவம்.பெயர்,
+                    display_name=வடிவம்.பெயர்,
+                    margin_top=str(வடிவம்.மேல்_ஓரம்) + "cm",
+                    margin_bottom=str(வடிவம்.கீழ்_ஓரம்) + "cm",
+                    text_indent=str(வடிவம்.உள்தள்ளல்) + "cm",
+                    margin_left=இடது_உள்தள்ளல்,
+                    margin_right=வலது_உள்தள்ளல்,
+                    **{"text-align": ஒழுங்குபடுத்தல், "style:writing-mode": திசை},
+                )
+            )
         else:
             raise TypeError(வடிவம்)

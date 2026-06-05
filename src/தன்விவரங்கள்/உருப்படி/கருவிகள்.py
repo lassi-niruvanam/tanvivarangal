@@ -16,13 +16,22 @@ class எழுத்தாளர்_வடிவம்(object):
 
 
 class நான்_தடிமன்_எழுத்தாளர்_வடிவம்(எழுத்தாளர்_வடிவம்):
-
     def __init__(தன், என்_பெயர்கள்: Iterable[str]):
         தன்.என்_பெயர்கள் = என்_பெயர்கள்
 
     def வடிவம்(தன், எழுத்தாளர்):
         if எழுத்தாளர் in தன்.என்_பெயர்கள்:
             return உரை_வடிவம்(தடிமன்=True)
+
+
+def மொழி_சீயனைதி(மொழி: str) -> str | None:
+    try:
+        return iso639.Language.match(மொழி).part3
+    except LanguageNotFoundError:
+        try:
+            return nchbl.runukChabäl(மொழி, runukulem="iso")
+        except (KeyError, ValueError):
+            return None
 
 
 def மொழியின்_குறியீடு(மொழி: str) -> str:
@@ -36,9 +45,7 @@ def மொழியின்_குறியீடு(மொழி: str) -> str:
 
     if சீயனைநி:
         try:
-            வெளியீட்டின்_மொழி = nchbl.rubiChabäl(
-                மொழி, 'iso'
-            )
+            வெளியீட்டின்_மொழி = nchbl.rubiChabäl(மொழி, "iso")
 
             if வெளியீட்டின்_மொழி:
                 return nchbl.runukChabäl(வெளியீட்டின்_மொழி, None) or மொழி
