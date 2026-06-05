@@ -25,7 +25,7 @@ class பட்டம்_மேல்பார்வையாளர்(உரு
     def __init__(
         தன்,
         பெயர்: str or உள்ளீடு_உரை,
-        பதவி: Optional[str or உள்ளீடு_உரை],
+        பதவி: Optional[str or உள்ளீடு_உரை] = None,
         பங்கு: Optional[str or உள்ளீடு_உரை] = "மேர்பார்வையாளர்",
     ):
         super().__init__()

@@ -1,5 +1,6 @@
 from typing import Iterator, Iterable, Optional
 
+from .இணைப்பு import இணைப்பு
 from .உருப்படி import உருப்படி
 from .உரை import உரை
 from .எண் import எண்_உரை
@@ -49,7 +50,7 @@ class இணையத்தளப்_பக்கம்(தொடர்பு):
         super().__init__(சின்னம்=சின்னம், தகவல்=முகவரி)
 
     def தகவல்_உருப்படி(தன்) -> உருப்படி:
-        return மொழிபெயர்க்கக்கூடிய_உரை(உள்ளீடு_உரையாக(தன்.தகவல்))
+        return இணைப்பு(தன்.தகவல்)
 
 
 class மின்னஞ்சல்(தொடர்பு):
