@@ -178,4 +178,4 @@ class தன்விவரங்கள்(object):
                         pass
             சாபிகளை_சேரு(மொழி_மரம், வேண்டிய_சாபிகள்)
             with open(மொழிபெயர்ப்பு_கோப்பு, encoding="utf8", mode="w") as கோ:
-                json.dump(மொழி_மரம், கோ, ensure_ascii=False, indent=2)
+                json.dump(மொழி_மரம், கோ, ensure_ascii=False, sort_keys=True, indent=2)
