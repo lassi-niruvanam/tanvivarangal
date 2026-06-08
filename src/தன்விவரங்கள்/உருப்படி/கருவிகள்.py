@@ -39,26 +39,39 @@ def மொழியின்_குறியீடு(மொழி: str) -> str:
         return மொழி
 
     try:
-        சீயனைநி = iso639.Language.match(மொழி).part3
+        குறியீடு = nchbl.runukChabäl(மொழி, None)
+        if குறியீடு:
+            return குறியீடு
+    except (ValueError, KeyError):
+        pass
+
+    try:
+        மொழியின்_பெயர் = nchbl.rubiChabäl(மொழி, None)
+
+        if மொழியின்_பெயர்:
+            return nchbl.runukChabäl(மொழியின்_பெயர்)
+    except (ValueError, KeyError):
+        pass
+
+    try:
+        சீயனைநி = iso639.Language.match(மொழி)
     except LanguageNotFoundError:
         சீயனைநி = None
 
     if சீயனைநி:
-        try:
-            வெளியீட்டின்_மொழி = nchbl.rubiChabäl(மொழி, "iso")
+        for சீயனைநி_குறியீடு in [சீயனைநி.part3, சீயனைநி.part1, சீயனைநி.part2b, சீயனைநி.part2t]:
+            try:
+                மொழியின்_பெயர் = nchbl.rubiChabäl(சீயனைநி_குறியீடு, "iso")
 
-            if வெளியீட்டின்_மொழி:
-                return nchbl.runukChabäl(வெளியீட்டின்_மொழி, None) or மொழி
-            else:
-                return சீயனைநி
+                if மொழியின்_பெயர்:
+                    return nchbl.runukChabäl(மொழியின்_பெயர், None)
 
-        except (ValueError, KeyError):
-            return சீயனைநி
+            except (ValueError, KeyError):
+                pass
 
-    try:
-        return nchbl.runukChabäl(மொழி, None) or மொழி
-    except (ValueError, KeyError):
-        return மொழி
+        return சீயனைநி.part3
+
+
 
 
 def மொழியைக்_கண்டுப்பிடி(உரை: str) -> str:
