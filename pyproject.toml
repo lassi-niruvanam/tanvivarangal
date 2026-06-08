@@ -1,6 +1,6 @@
 [project]
-name = "tanvivaragal"
-version = "0.1.0"
+name = "tanvivarangal"
+version = "1.0.0"
 description = ""
 authors = [
     { name = "Julien Malard-Adam", email = "julien.malard@mail.mcgill.ca" },
