@@ -152,9 +152,12 @@ class தன்விவரங்கள்(object):
             return அகராதி
 
         def சாபிகளை_சேரு(அகராதி: dict[str, str], சாபிகள்: Iterable[str]):
-            for சாபி, மதிப்பு in [*அகராதி.items()]:
-                if சாபி not in சாபிகள் and not மதிப்பு:
-                    அகராதி.pop(சாபி)
+            for சாபி, மதிப்பு in list(அகராதி.items()):
+                if சாபி not in சாபிகள்:
+                    if not மதிப்பு:
+                        அகராதி.pop(சாபி)
+                    elif இருக்கும்_சாபி := next((சா for சா in சாபிகள் if சா.endswith("."+சாபி.split(".")[-1])), None):
+                        அகராதி[இருக்கும்_சாபி] = அகராதி.pop(சாபி)
 
             for சாபி in சாபிகள்:
                 if சாபி not in அகராதி:
