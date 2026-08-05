@@ -36,9 +36,6 @@ jobs:
         with:
           enable-cache: true
 
-      - name: சார்பு நிறுவல்
-        run: uv install
-
       - name: சோதிக்க
         run: uv run coverage run -m pytest && uv run coverage xml
 
