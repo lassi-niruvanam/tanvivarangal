@@ -31,17 +31,16 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-      - name: PDM நிறுவல்
-        uses: pdm-project/setup-pdm@v4
+      - name: UV நிறுவல்
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
         with:
-          python-version: ${{ matrix.python-version }}
-          cache: true
+          enable-cache: true
 
       - name: சார்பு நிறுவல்
-        run: pdm install
+        run: uv install
 
       - name: சோதிக்க
-        run: pdm cov && pdm run coverage xml
+        run: uv run coverage run -m pytest && uv run coverage xml
 
       - name: Envoyer rapports de couverture à Codecov
         uses: codecov/codecov-action@v7

@@ -19,13 +19,6 @@ requires-python = ">=3.12,<4.0"
 readme = "README.md"
 license = { text = "AGPL-3.0" }
 
-[tool.pdm]
-distribution = true
-
-[tool.pdm.scripts]
-test = "pdm run pytest"
-cov = "pdm run coverage run -m pytest"
-
 [tool.pdm.build]
 includes = ["src/தன்விவரங்கள்"]
 
