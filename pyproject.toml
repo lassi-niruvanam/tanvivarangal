@@ -6,7 +6,7 @@ authors = [
     { name = "Julien Malard-Adam", email = "julien.malard@mail.mcgill.ca" },
 ]
 dependencies = [
-    "bibtexparser<2.0.0,>=1.4.0",
+    "bibtexparser<2.2.0,>=2.1.0",
     "ennikkai<2.0.0,>=1.2.6",
     "pyfranc<1.0.0,>=0.1.1",
     "deepmerge<2.2,>=2.1",
