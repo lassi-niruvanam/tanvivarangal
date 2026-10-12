@@ -5,7 +5,7 @@ import iso639
 from iso639 import LanguageNotFoundError
 from pyfranc import franc
 
-from .வெளியீடுகள்.கருவிகள் import nchbl
+from .மேம்ப்பட்டவை.வெளியீடுகள்.கருவிகள் import nchbl
 from ..வடிவம் import உரை_வடிவம்
 
 

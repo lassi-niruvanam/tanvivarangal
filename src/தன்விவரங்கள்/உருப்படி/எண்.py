@@ -4,7 +4,7 @@ from odfdo import Span
 from எண்ணிக்கை import உரைக்கு
 
 from .உரை import உரை
-from .வெளியீடுகள்.கருவிகள் import nchbl
+from .மேம்ப்பட்டவை.வெளியீடுகள்.கருவிகள் import nchbl
 from ..மொழிபெயர்ப்பாளர்.மொழிபெயர்ப்பாளர் import மொழிபெயர்ப்பாளர்
 from ..வடிவம் import உரை_வடிவம், தேவையான_வடிவங்கள்
 
